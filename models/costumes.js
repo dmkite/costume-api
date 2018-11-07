@@ -23,10 +23,10 @@ function createCostume(desc = '', name, price = 0.01){
     return costumeEntry
 }
 
-function editCostume(costume, edits){
+function editCostume(id, edits){
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    const index = data.findIndex(ele => ele.id === costume.id)
+    const index = data.findIndex(ele => ele.id === id)
     const correctCostume = data[index]
     for(let key in edits){
        if(!!edits[key]) correctCostume[key] = edits[key]
@@ -36,10 +36,10 @@ function editCostume(costume, edits){
     return correctCostume
 }
 
-function deleteCostume(costume){
+function deleteCostume(id){
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    const index = data.findIndex(ele => ele.id === costume.id)
+    const index = data.findIndex(ele => ele.id === id)
     const deletedCostume = data.splice(index, 1)
     data = JSON.stringify(data, null, 4)
     fs.writeFileSync('data/costumes.json', data)
