@@ -14,7 +14,7 @@ function getOneCostume(req, res, next){
 
 function createCostume(req, res, next){
     const {desc, name, price} = req.body
-    if (!name) next({ status: 400, message: 'You must include a name' } )
+    if (!name) return next({ status: 400, message: 'You must include a name' } )
     const newCostume = model.createCostume(desc, name, price)
     res.status(201).send(newCostume)
 }
