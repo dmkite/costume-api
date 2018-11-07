@@ -1,5 +1,14 @@
 const model = require('../models/costumes')
 
+
+function checkById(req, res, next) {
+    const id = req.params.id
+    const correctCostume = model.getOneCostume(id)
+    if (!correctCostume) return next({ status: 404, message: `No costume at id '${id}'` })
+    req.body.correctCostume = correctCostume
+    next()
+}
+
 function getAllCostumes(req, res){
     const data = model.getAllCostumes()
     res.status(200).send(data)
@@ -38,4 +47,4 @@ function deleteCostume(req, res, next){
     res.status(200).send(deletedCostume)
 }
 
-module.exports = { getAllCostumes, getOneCostume, createCostume, editCostume, deleteCostume}
+module.exports = { checkById, getAllCostumes, getOneCostume, createCostume, editCostume, deleteCostume}

@@ -9,13 +9,13 @@ app.use(bodyParser.json())
 
 app.use('/costumes', require('./routes/costumes'))
 
-app.use((res,req,next) => {
+app.use((req,res,next) => {
     res.status(404).send('Not found')
 })
 
 app.use((err, req, res, next) =>{
-    const status = err.status || 500
-    err = err || "To see the costume API, try entering 'complex-api-dmkite.herokuapp.com/costumes'"
+    console.log(err)
+    let status = err.status || 500
     res.status(status).send(err)
 })
 

@@ -10,25 +10,25 @@ function getOneTag(costume, id) {
     return costume.tags[index]
 }
 
-function createTag(tag, costume) {
+function createTag(tag, id) {
     tag.id = shortId()
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    const index = data.findIndex(ele => ele.id === costume.id)
+    const index = data.findIndex(ele => ele.id === id)
     data[index].tags.push(tag)
     data = JSON.stringify(data, null, 4)
     fs.writeFileSync('data/costumes.json', data)
     return tag
 }
 
-function editTag(costume, id, edits) {
+function editTag(cId, id, edits) {
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    const correctCostume = data.find(ele => ele.id === costume.id)
+    const correctCostume = data.find(ele => ele.id === cId)
 
     const index = correctCostume.tags.findIndex(tag => tag.id === id)
 
-    if (!correctCostume.tags[index]) return next({ status: 404, message: `No tag at id '${id}'` })
+    if (!correctCostume.tags[index]) return false
     for (let key in edits) {
         if (!!edits[key]) correctCostume.tags[index][key] = edits[key]
     }
@@ -39,10 +39,10 @@ function editTag(costume, id, edits) {
     return correctCostume.tags[index]
 }
 
-function deleteTag(costume, id) {
+function deleteTag(cId, id) {
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    const index = data.findIndex(ele => ele.id === costume.id)
+    const index = data.findIndex(ele => ele.id === cId)
     const tagIndex = data[index].tags.findIndex(tag => tag.id === id)
     if (tagIndex === -1) return false
     const deletedTag = data[index].tags.splice(tagIndex, 1)

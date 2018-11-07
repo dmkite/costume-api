@@ -7,10 +7,10 @@ const tagRoutes = require('./tags')
 router.get('/', ctrl.getAllCostumes)
 router.get('/:id', ctrl.getOneCostume)
 router.post('/', ctrl.createCostume)
-router.patch('/:id', ctrl.editCostume)
-router.delete('/:id', ctrl.deleteCostume)
+router.patch('/:id', ctrl.checkById, ctrl.editCostume)
+router.delete('/:id', ctrl.checkById, ctrl.deleteCostume)
 
-router.use('/:id/tags', tagRoutes)
+router.use('/:id/tags', ctrl.checkById, tagRoutes)
 
 
 module.exports = router
