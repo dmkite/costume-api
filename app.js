@@ -14,7 +14,8 @@ app.use((res,req,next) => {
 })
 
 app.use((err, req, res, next) =>{
-    let status = err.status || 500
+    const status = err.status || 500
+    const err = err || "To see the costume API, try entering 'complex-api-dmkite.herokuapp.com/costumes'"
     res.status(status).send(err)
 })
 
