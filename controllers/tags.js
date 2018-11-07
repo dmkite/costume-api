@@ -2,41 +2,41 @@ const model = require('../models/tags')
 const {getOneCostume} = require('../models/costumes')
 
 function checkById(req, res, next) {
-    let id = req.params.id
-    let correctCostume = getOneCostume(id)
+    const id = req.params.id
+    const correctCostume = getOneCostume(id)
     req.body.correctCostume = correctCostume
     if (!correctCostume) return next({ status: 404, message: `No costume at id '${id}'` })
     next()
 }
 
 function getAllTags(req, res, next) {
-    let { correctCostume } = req.body
+    const { correctCostume } = req.body
     let tagList = model.getAllTags(correctCostume)
     res.status(200).send(tagList)
 }
 
 function getOneTag(req, res, next) {
-    let correctCostume = req.body.correctCostume
-    let { tId } = req.params
-    let correctTag = model.getOneTag(correctCostume, tId)
+    const correctCostume = req.body.correctCostume
+    const { tId } = req.params
+    const correctTag = model.getOneTag(correctCostume, tId)
     if (!correctTag) return next({ status: 404, message: `No tag at id '${id}'` })
     res.status(200).send(correctTag)
 }
 
 function createTag(req, res, next) {
-    let { color, name, correctCostume } = req.body
+    const { color, name, correctCostume } = req.body
     if (!name) return next({ status: 400, message: 'Tags must contain at least a name' })
-    let newTag = { color, name }
-    let createdTag = model.createTag(newTag, correctCostume)
+    const newTag = { color, name }
+    const createdTag = model.createTag(newTag, correctCostume)
     res.status(201).send(createdTag)
 }
 
 function editTag(req, res, next) {
-    let { correctCostume, name, color } = req.body
+    const { correctCostume, name, color } = req.body
     if (!name && !color) return next({ status: 400, message: 'Only name and color can be edited' })
-    let edits = { name, color }
-    let tId = req.params.tId
-    let editedTag = model.editTag(correctCostume, tId, edits)
+    const edits = { name, color }
+    const tId = req.params.tId
+    const editedTag = model.editTag(correctCostume, tId, edits)
     res.status(200).send(editedTag)
 }
 

@@ -6,7 +6,7 @@ function getAllTags(costume) {
 }
 
 function getOneTag(costume, id) {
-    let index = costume.tags.findIndex(tag => tag.id === id)
+    const index = costume.tags.findIndex(tag => tag.id === id)
     return costume.tags[index]
 }
 
@@ -14,7 +14,7 @@ function createTag(tag, costume) {
     tag.id = shortId()
     let data = fs.readFileSync('data/costumes.json', 'utf-8')
     data = JSON.parse(data)
-    let index = data.findIndex(ele => ele.id === costume.id)
+    const index = data.findIndex(ele => ele.id === costume.id)
     data[index].tags.push(tag)
     data = JSON.stringify(data, null, 4)
     fs.writeFileSync('data/costumes.json', data)
