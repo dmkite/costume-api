@@ -1,0 +1,53 @@
+[
+    {
+        "id": "2WEKaVNO",
+        "name": "Disco Jumpsuit",
+        "price": 75,
+        "desc": "Put the 'oh!' in disco with this disco jumpsuit",
+        "tags": [
+            {
+                "name": "Stretchy",
+                "id": "uXtEtDgD-"
+            },
+            {
+                "name": "Television",
+                "id": "gta6J2cna"
+            },
+            {
+                "name": "Stretchy",
+                "id": "bB4UufFLD"
+            }
+        ]
+    },
+    {
+        "desc": "Terrorize Tokyo in this fantastic full length lizard suit",
+        "name": "Generic Giant Lizard",
+        "price": 35,
+        "id": "5eBRQ7SKH",
+        "tags": [
+            {
+                "color": "#45FE9C",
+                "name": "Unisex",
+                "id": "apAYfKWkH"
+            }
+        ]
+    },
+    {
+        "desc": "",
+        "price": 0.01,
+        "id": "HxNY9GUPM",
+        "tags": []
+    },
+    {
+        "desc": "",
+        "price": 0.01,
+        "id": "dORcurROP",
+        "tags": []
+    },
+    {
+        "desc": "",
+        "price": 0.01,
+        "id": "78_OK8M38",
+        "tags": []
+    }
+]
