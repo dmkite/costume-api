@@ -18,23 +18,5 @@
                 "id": "bB4UufFLD"
             }
         ]
-    },
-    {
-        "desc": "Terrorize Tokyo in this fantastic full length lizard suit",
-        "name": "Generic Giant Lizard",
-        "price": 35,
-        "id": "5eBRQ7SKH",
-        "tags": [
-            {
-                "color": "#45FE9C",
-                "name": "Unisex",
-                "id": "apAYfKWkH"
-            },
-            {
-                "color": "#45FE9c",
-                "name": "One size fits all",
-                "id": "56UhlFjYX"
-            }
-        ]
     }
 ]

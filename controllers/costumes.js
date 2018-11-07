@@ -35,7 +35,7 @@ function editCostume(req, res, next){
     const correctCostume = model.getOneCostume(id)
     if (!correctCostume) return next({ status: 404, message: `No costume at id '${id}'` })  
     
-    let editedCostume = model.editCostume(correctCostume, edits)
+    let editedCostume = model.editCostume(id, edits)
     res.status(200).send(editedCostume)
 }
 
